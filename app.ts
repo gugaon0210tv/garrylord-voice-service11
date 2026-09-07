@@ -7,7 +7,7 @@ const port = process.env.PORT
   ? parseInt(process.env.PORT, 10)
   : 3000
 
-app.use(bodyParser.text({ 입력: '*/*' }))
+app.use(bodyParser.text({ type: '*/*' }))
 app.use(express.static('public'))
 
 app.get('/api/legado', require('./api/legado'))
