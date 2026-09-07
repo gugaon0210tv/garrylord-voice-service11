@@ -1,12 +1,12 @@
 {
-    "compilerOptions": {
-        "moduleResolution": "node",
-        "module": "commonjs",
-        "target": "ES6",
-        "declaration": true,
-        "outDir": "dist",
-        "sourceMap": true
-    },
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true
+  }
+},
     "typedocOptions": {
         "entryPoints": ["src/app.ts"],
         "out": "docs",
