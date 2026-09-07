@@ -1,11 +1,13 @@
-import * as express from 'express'
-import * as bodyParser from 'body-parser'
+import express from 'express'
+import bodyParser from 'body-parser'
 
 const app = express()
 
-const port = process.env.PORT ? parseInt(process.env.PORT, 10) : 3000
+const port = process.env.PORT
+  ? parseInt(process.env.PORT, 10)
+  : 3000
 
-bodyParser.text({ 입력: '*/*' })
+app.use(bodyParser.text({ 입력: '*/*' }))
 app.use(express.static('public'))
 
 app.get('/api/legado', require('./api/legado'))
