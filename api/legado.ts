@@ -32,7 +32,22 @@ module.exports = async (request: Request, response: Response) => {
     throw new Error('Invalid format')
   }
 
-  const contentType = FORMAT_CONTENT_TYPE.get(voiceFormat)
+const voiceFormatQuery = request.query['voiceFormat']
+
+if (
+  typeof voiceFormatQuery !== 'string' ||
+  voiceFormatQuery.length === 0
+) {
+  throw new Error(`Invalid format ${String(voiceFormatQuery)}`)
+}
+
+const voiceFormat = voiceFormatQuery
+
+const contentType = FORMAT_CONTENT_TYPE.get(voiceFormat)
+
+if (!contentType) {
+  throw new Error(`Invalid format ${voiceFormat}`)
+}
 
   if (!contentType) {
     throw new Error(`Invalid format ${voiceFormat}`)
