@@ -20,7 +20,6 @@ module.exports = async (request: Request, response: Response) => {
   const voiceName = request.query['voiceName'] ?? 'zh-CN-XiaoxiaoNeural'
   const styleName = request.query['styleName']
   const styleDegree = request.query['styleDegree']
-  const voiceFormat = request.query['voiceFormat']
   const lexicon = request.query['lexicon'] ?? ''
   const token = request.query['token'] ?? ''
 
