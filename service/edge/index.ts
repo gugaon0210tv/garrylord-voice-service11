@@ -94,9 +94,13 @@ export class Service {
             this.bufferMap.set(requestId, Buffer.from([]))
           } else if (data.includes('Path:turn.end')) {
             // 结束传输
-            let matches = data.match(pattern)
-            let requestId = matches.groups.id
+const matches = data.match(pattern)
+const requestId = matches?.groups?.id
 
+if (!requestId) {
+  console.warn('请求IDを取得できませんでした')
+  return
+}
             let executor = this.executorMap.get(requestId)
             if (executor) {
               this.executorMap.delete(matches.groups.id)
